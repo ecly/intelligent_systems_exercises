@@ -1,0 +1,31 @@
+Author: ecly@itu.dk
+1)
+
+function MINIMAX-DECISION(state) returns an action
+    return arg max(a in ACTIONS(s)) CHANCE-VALUE(RESULT(state,a))
+
+function MAX-VALUE(state) returns a utility value
+    if TERMINAL-TEST (state) then return EVAL (state)
+    v ← -∞
+    for each a in ACTIONS (state) do
+        v ← MAX(v,CHANCE-VALUE(RESULT(s,a))
+    return v
+
+function MIN-VALUE(state) returns a utility value
+    if TERMINAL-TEST(state) then return UTILITY(state)
+    v ← ∞
+    for each a in ACTIONS(state) do
+        v ← MIN(v,CHANCE-VALUE(RESULT(s,a))
+    return v
+
+function CHANCE-VALUE (state) returns a utility value
+    if TERMINAL-TEST(state) then return UTILITY(state)
+    v ← 0
+    for each a in ACTIONS(state) do
+        s = RESULT(s,a)
+        if Player(s) == MAX
+        then v += P(a) * MAX-VALUE(s))
+        else v += P(a) * MIN-VALUE(s)
+    return v
+
+2)
