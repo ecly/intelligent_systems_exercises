@@ -29,3 +29,16 @@ function CHANCE-VALUE (state) returns a utility value
     return v
 
 2)
+a) One branch on the left branch (marked with [WRONG BRANCH]) I accidentally played
+   the same move in both branches, causing that side to get a wrong score.
+   Its score should be the same as the right branch of 0.375.
+
+   I hope you will bear with me as it was rather cumbersome to draw.
+   Any good recommendations for software to do this both prettier
+   and perhaps even faster?
+
+   Picture in .zip file as "2a.png"
+
+b) Minimax chooses to play the middle branch, which is to lay the coin down in the
+   lower left corner. This branch has a minimax value of 0.75, whereas the other two
+   branches have values of 0.375.
