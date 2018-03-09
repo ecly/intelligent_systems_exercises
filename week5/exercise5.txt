@@ -1,0 +1,21 @@
+AUTHOR: ecly@itu.dk
+
+1)
+Backward chaining is good for finding a state that fulfills a given set of criteria.
+Forward chaining is good for infering results given an initial set of conditions.
+
+2)
+Professor Smart's algorithm CAN tell if KB |= A.
+
+It does so by finding all clauses from which we can infer A.
+Then it recursively checks whether all the pre-conditions needed to infer A
+can be inferred from the KB, and returns 'true' if it can and otherwise
+continues the next clause from which A can be inferred, until none are left,
+in which case we return 'false', if we have no already returned true.
+
+3)
+Professor Smart's algorithm does not run in linear time, as it may try to entail
+whether the KB satisfies a given clause up to 'n' times, where n is the number of horn-clauses.
+
+As such the current version of Smart's algorithm runs in O(n^2). Using dynamic programming
+we can trivially reduce this to O(n).
