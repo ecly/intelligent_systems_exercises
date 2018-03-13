@@ -5,13 +5,24 @@ Backward chaining is good for finding a state that fulfills a given set of crite
 Forward chaining is good for infering results given an initial set of conditions.
 
 2)
-Professor Smart's algorithm CAN tell if KB |= A.
+Professor Smart's algorithm CANNOT tell if KB |= A.
 
-It does so by finding all clauses from which we can infer A.
-Then it recursively checks whether all the pre-conditions needed to infer A
-can be inferred from the KB, and returns 'true' if it can and otherwise
-continues the next clause from which A can be inferred, until none are left,
-in which case we return 'false', if we have no already returned true.
+His algorithm can not check this as it will instead infinitely loop
+between checking the clauses:
+
+C => G
+B ^ E ^ G => C
+
+We don't know whether C or G is true, as such we look for clauses concluding
+C or G. C and G exist in the conclusion of only these 2 clauses, and as such
+will loop indefinitely between them.
+
+To fix this, we could extend the algorithm to keep track of clauses already,
+and similarly values known to be true. With that extension we should never have
+to evaluate clauses twice and in the case where we run out of clauses with either
+C og G in the conclusion, we can simply return false.
+
+This also relates to running time solution described in 3.
 
 3)
 Professor Smart's algorithm does not run in linear time, as it may try to entail
