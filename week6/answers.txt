@@ -1,0 +1,8 @@
+Author: ecly@itu.dk
+
+1) See attached robdd.jpg
+2) See attached robdd.jpg
+3) For threshold functions with k=1, the size will be kn,
+   which is apparent, by looking at robdd.jpg, and seeing that the number
+   of nodes with some number of preceding truth values is equal to k.
+   Eg 0,1,2 in this case.
